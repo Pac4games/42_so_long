@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/16 14:33:05 by paugonca          #+#    #+#             */
-/*   Updated: 2023/02/16 14:46:36 by paugonca         ###   ########.fr       */
+/*   Created: 2023/02/09 15:50:06 by paugonca          #+#    #+#             */
+/*   Updated: 2023/02/16 14:39:41 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int	main(void)
+void	ft_putstr(char *str)
 {
-	void	*mlx;
-	void	*mlx_win;
+	int	p;
 
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 600, 800, "Twilight Syndrome Murder Case 2");
-	mlx_loop(mlx);
-	return (0);
+	p = 0;
+	while (str[p])
+		write(1, &str[p++], 1);
 }
