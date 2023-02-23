@@ -6,15 +6,18 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:09:50 by paugonca          #+#    #+#             */
-/*   Updated: 2023/02/20 19:59:37 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/02/23 16:54:27 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../minilibx-linux/mlx.h"
+# include "../mlx_linux/mlx.h"
 # include "../libft/libft.h"
+
+//Assets path definitions
+# define PLAYER_FRONT "../assets/luka_front.xpm"
 
 typedef struct s_data {
 	void	*mlx;

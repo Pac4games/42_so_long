@@ -6,18 +6,18 @@
 #    By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/17 15:53:29 by paugonca          #+#    #+#              #
-#    Updated: 2023/02/23 13:13:51 by paugonca         ###   ########.fr        #
+#    Updated: 2023/02/23 16:48:49 by paugonca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 $(VERBOSE).SILENT:
 
 NAME		=	so_long
-CC			=	cc
-CFLAGS		=	-Wall -Werror -Wall #-fsanitize=address
+CC			=	gcc
+CFLAGS		=	-Wall -Werror -Wall -fsanitize=address
 RM			=	rm -f
 MKD			=	mkdir
-MLXFLAGS	=	-Lminilibx-linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+MLXFLAGS	=	-Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 MLX_LINUX	=	-I/usr/include -Imlx_linux -O3
 
 SRC_NAME	=	main.c
