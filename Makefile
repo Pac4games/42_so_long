@@ -6,14 +6,14 @@
 #    By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/17 15:53:29 by paugonca          #+#    #+#              #
-#    Updated: 2023/02/17 17:25:46 by paugonca         ###   ########.fr        #
+#    Updated: 2023/02/23 13:13:51 by paugonca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 $(VERBOSE).SILENT:
 
 NAME		=	so_long
-CC			=	gcc
+CC			=	cc
 CFLAGS		=	-Wall -Werror -Wall #-fsanitize=address
 RM			=	rm -f
 MKD			=	mkdir
@@ -35,7 +35,7 @@ $(OBJ_PATH)/%.o : $(SRC_PATH)/%.c
 	$(CC) $(CFLAGS) $(MLX_LINUX) -c $< -o $@
 $(NAME): $(DEPS) $(OBJ_PATH) $(OBJ)
 		$(CC) $(CFLAGS) $(OBJ) $(DEPS) $(MLXFLAGS) -o $(NAME)
-		echo "\x1b[36m[SO_LONG COMPILED]\x1b[0m"
+		echo -e "\n[so_long successfully compiled!]"
 
 LIBFT_PATH	= ./libft
 ./libft/libft.a: $(shell make -C $(LIBFT_PATH) -q libft.a || echo force)
@@ -45,14 +45,14 @@ $(OBJ_PATH):
 	$(MKD) -p obj
 
 clean:
+	echo -e "[Removing object files...]\n"
 	make clean -C $(LIBFT_PATH)
 	$(RM) -r $(OBJ_PATH)
-	echo "\033[33mRemoving object files...\033[0m"
 
 fclean: clean
+		echo -e "[Removing $(NAME)...]\n"
 		make fclean -C $(LIBFT_PATH)
 		$(RM) $(NAME)
-		echo "\033[31mRemoving $(NAME)...\033[0m"
 
 re: fclean all
 
