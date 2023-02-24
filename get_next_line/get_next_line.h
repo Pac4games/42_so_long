@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 16:07:52 by paugonca          #+#    #+#             */
-/*   Updated: 2022/11/23 15:42:48 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/02/24 21:28:44 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 //get_next_line
 char	*get_next_line(int fd);
 //get_next_line_utils.c
-size_t	ft_strlen(const char *str);
-char	*ft_strjoin(char *s1, char *s2);
+size_t	gnl_strlen(const char *str);
+char	*gnl_strjoin(char *s1, char *s2);
 int		clean_buf(char *buf);
 
 #endif

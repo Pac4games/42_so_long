@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 16:40:26 by paugonca          #+#    #+#             */
-/*   Updated: 2022/11/16 16:48:15 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/02/24 21:21:56 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*get_next_line(int fd)
 	res = NULL;
 	while (buf[0] || read(fd, buf, BUFFER_SIZE) > 0)
 	{
-		res = ft_strjoin(res, buf);
+		res = gnl_strjoin(res, buf);
 		if (clean_buf(buf))
 			break ;
 	}

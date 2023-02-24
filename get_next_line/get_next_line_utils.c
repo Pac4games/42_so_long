@@ -6,14 +6,14 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 16:09:32 by paugonca          #+#    #+#             */
-/*   Updated: 2022/11/16 16:56:22 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/02/24 21:23:07 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
 //Adaptated version for get_next_line()
-size_t	ft_strlen(const char *str)
+size_t	gnl_strlen(const char *str)
 {
 	size_t	p;
 
@@ -28,13 +28,13 @@ size_t	ft_strlen(const char *str)
 }
 
 //Another adaptaded version for get_next_line()
-char	*ft_strjoin(char *s1, char *s2)
+char	*gnl_strjoin(char *s1, char *s2)
 {
 	char	*res;
 	int		p;
 
 	p = 0;
-	res = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	res = malloc(gnl_strlen(s1) + gnl_strlen(s2) + 1);
 	if (!res)
 		return (NULL);
 	while (s1 && s1[p])
