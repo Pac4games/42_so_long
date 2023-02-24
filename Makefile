@@ -6,15 +6,15 @@
 #    By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/17 15:53:29 by paugonca          #+#    #+#              #
-#    Updated: 2023/02/23 17:09:33 by paugonca         ###   ########.fr        #
+#    Updated: 2023/02/24 15:31:56 by paugonca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 $(VERBOSE).SILENT:
 
 NAME		=	so_long
-CC			=	gcc
-CFLAGS		=	-Wall -Werror -Wall #-fsanitize=address
+CC			=	cc
+CFLAGS		=	-Wall -Werror -Wall -fsanitize=address
 RM			=	rm -f
 MKD			=	mkdir
 MLXFLAGS	=	-Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
