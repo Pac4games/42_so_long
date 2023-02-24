@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   map_load.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/09 15:50:06 by paugonca          #+#    #+#             */
-/*   Updated: 2023/02/16 14:39:41 by paugonca         ###   ########.fr       */
+/*   Created: 2023/02/24 16:49:40 by paugonca          #+#    #+#             */
+/*   Updated: 2023/02/24 16:51:46 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "so_long.h"
 
-void	ft_putstr(char *str)
+char	**map_load(char *path)
 {
-	int	p;
 
-	p = 0;
-	while (str[p])
-		write(1, &str[p++], 1);
 }
