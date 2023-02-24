@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 16:49:40 by paugonca          #+#    #+#             */
-/*   Updated: 2023/02/24 16:51:46 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/02/24 18:26:56 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,9 @@
 
 char	**map_load(char *path)
 {
+	int	fd;
 
+	fd = open(path, O_RDONLY);
+	if (fd < 0)
+		print_error("Failed to read map.\n");
 }

@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:09:50 by paugonca          #+#    #+#             */
-/*   Updated: 2023/02/24 16:52:24 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/02/24 18:28:17 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include "../mlx_linux/mlx.h"
 # include "../libft/libft.h"
+# include "../get_next_line/get_next_line.h"
+# include <stdio.h>
+# include <fcntl.h>
 
 //Assets path definitions
 # define PLAYER_FRONT "assets/luka_front.xpm"
@@ -43,5 +46,8 @@ typedef struct s_data {
 
 //Map utils
 char	**map_load(char *path);
+
+//Error utils
+void	print_error(char *msg);
 
 #endif
