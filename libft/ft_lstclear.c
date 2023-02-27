@@ -6,13 +6,14 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 18:50:29 by paugonca          #+#    #+#             */
-/*   Updated: 2022/10/27 12:36:53 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/02/27 17:43:36 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+//Tweaked version for this project
+void	ft_lstclear(t_list **lst)
 {
 	t_list	*hold;
 	
@@ -21,7 +22,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	while (*lst)
 	{
 		hold = (*lst)->next;
-		ft_lstdelone(*lst, del);
+		ft_lstdelone(*lst);
 		*lst = hold;
 	}
 	lst = 0;

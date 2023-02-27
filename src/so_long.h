@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:09:50 by paugonca          #+#    #+#             */
-/*   Updated: 2023/02/24 21:27:17 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/02/27 17:28:32 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@
 
 //Assets path definitions
 # define PLAYER_FRONT "assets/luka_front.xpm"
+# define WALL "assets/wall_front.xpm"
+# define FLOOR "assets/floor.xpm"
+# define COLLECTIBLE "assets/antidote1.xpm"
 
 typedef struct s_data {
 	void	*mlx;

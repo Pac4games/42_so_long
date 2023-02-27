@@ -6,11 +6,9 @@
 #    By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/17 15:53:29 by paugonca          #+#    #+#              #
-#    Updated: 2023/02/24 18:27:39 by paugonca         ###   ########.fr        #
+#    Updated: 2023/02/27 11:45:42 by paugonca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-$(VERBOSE).SILENT:
 
 NAME		=	so_long
 CC			=	cc
@@ -41,7 +39,7 @@ $(NAME): $(DEPS) $(OBJ_PATH) $(OBJ)
 
 LIBFT_PATH	= ./libft
 ./libft/libft.a: $(shell make -C $(LIBFT_PATH) -q libft.a || echo force)
-	make -C $(LIBFT_PATH)
+	make bonus -C $(LIBFT_PATH)
 
 GNL_PATH	= ./get_next_line
 ./get_next_line/get_next_line.a: $(shell make -C $(GNL_PATH) -q get_next_line.a ||echo force)
