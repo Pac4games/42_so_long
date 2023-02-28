@@ -6,13 +6,13 @@
 #    By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/17 15:53:29 by paugonca          #+#    #+#              #
-#    Updated: 2023/02/27 11:45:42 by paugonca         ###   ########.fr        #
+#    Updated: 2023/02/28 22:44:10 by paugonca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	so_long
 CC			=	cc
-CFLAGS		=	-Wall -Werror -Wall -fsanitize=address
+CFLAGS		=	-Wall -Werror -Wall #-fsanitize=address
 RM			=	rm -f
 MKD			=	mkdir
 MLXFLAGS	=	-Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
@@ -20,7 +20,8 @@ MLX_LINUX	=	-I/usr/include -Imlx_linux -O3
 
 SRC_NAME	=	main.c			\
 				map_load.c		\
-				error_utils.c
+				print_utils.c	\
+				check_utils.c
 
 SRC		=	$(addprefix $(SRC_PATH)/, $(SRC_NAME))
 OBJ		=	$(patsubst $(SRC_PATH)/%.c, $(OBJ_PATH)/%.o, $(SRC))

@@ -1,16 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_utils.c                                      :+:      :+:    :+:   */
+/*   print_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 18:22:06 by paugonca          #+#    #+#             */
-/*   Updated: 2023/02/27 16:53:15 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/02/28 17:21:47 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	print_matrix(char **matrix)
+{
+	int	p;
+
+	p = 0;
+	while (matrix[p])
+		ft_putstr_fd(matrix[p++], 1);
+}
 
 void	print_error(char *msg)
 {

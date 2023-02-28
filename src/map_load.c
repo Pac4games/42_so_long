@@ -6,24 +6,11 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 16:49:40 by paugonca          #+#    #+#             */
-/*   Updated: 2023/02/27 17:40:22 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/02/28 22:43:00 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-/*
-void	print_list(t_list *list)
-{
-	t_list *cursor;
-
-	cursor = list;
-	while (cursor)
-	{
-		ft_putstr_fd(cursor->content, 1);
-		cursor = cursor->next;
-	}
-}
-*/
 
 static t_list	*map_get(char *path)
 {
@@ -35,7 +22,6 @@ static t_list	*map_get(char *path)
 	map = 0;
 	if (fd == -1)
 		print_error("Failed to read map.\n");
-	ft_putstr_fd("File opened successfully.\n", 1);
 	line = get_next_line(fd);
 	while (line)
 	{
@@ -48,13 +34,11 @@ static t_list	*map_get(char *path)
 char	**map_load(char *path)
 {
 	int		p;
-	int		i;
 	char	**res;
 	t_list	*cursor;
 	t_list	*map;
 
 	p = 0;
-	i = 0;
 	map = map_get(path);
 	cursor = map;
 	while (cursor)
@@ -63,10 +47,13 @@ char	**map_load(char *path)
 		cursor = cursor->next;
 	}
 	res = malloc((p + 1) * sizeof(char *));
+	if (!res)
+		return (0);
 	cursor = map;
+	p = 0;
 	while (cursor)
 	{
-		res[i++] = cursor->content;
+		res[p++] = cursor->content;
 		cursor = cursor->next;
 	}
 	res[p] = 0;
