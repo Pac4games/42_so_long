@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 16:49:40 by paugonca          #+#    #+#             */
-/*   Updated: 2023/02/28 22:43:00 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/01 11:23:58 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ static t_list	*map_get(char *path)
 	if (fd == -1)
 		print_error("Failed to read map.\n");
 	line = get_next_line(fd);
+	if (!line)
+		print_error("provided map is empty.\n");
 	while (line)
 	{
 		ft_lstadd_back(&map, ft_lstnew(line));
