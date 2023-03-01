@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:09:50 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/01 15:31:07 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/01 16:16:03 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ typedef struct s_data {
 	void	*enemy;
 	int		x;
 	int		y;
-	int		*size_x;
-	int		*size_y;
+	int		size_x;
+	int		size_y;
 	int		bits_per_pixel;
 	int		line_lenght;
 	int		endian;
@@ -47,9 +47,16 @@ typedef struct s_data {
 	char	*addr;
 }				t_data;
 
+//Window (duh)
+t_data	*window(void);
+
 //Map and check utils
 char	**map_load(char *path, t_list *cursor);
+int		map_size(char **map, char axis);
 void	check_map(char **map);
+
+//Game utils
+void	window_create(char **map);
 
 //Print utils
 void	print_error(char *msg);

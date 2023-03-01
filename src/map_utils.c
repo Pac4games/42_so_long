@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_load.c                                         :+:      :+:    :+:   */
+/*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 16:49:40 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/01 15:29:59 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/01 16:01:53 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,19 @@ char	**map_load(char *path, t_list *cursor)
 	res[p] = 0;
 	ft_lstclear(&map);
 	return (res);
+}
+
+int	map_size(char **map, char axis)
+{
+	int	p;
+
+	p = 0;
+	if (axis == 'x')
+		p = ft_strlen(map[0]) - 1;
+	else if (axis == 'y')
+	{
+		while (map[p])
+			p++;
+	}
+	return (p);
 }
