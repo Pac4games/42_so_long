@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:33:05 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/01 14:57:02 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/01 15:30:31 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,13 @@ t_data	*window(void)
 int	main(int ac, char **av)
 {
 	char	**map;
+	t_list	*cursor;
 
 	map = 0;
+	cursor = 0;
 	if (ac != 2)
 		print_error("Please select one and only one map.");
-	map = map_load(av[1]);
+	map = map_load(av[1], cursor);
 	check_map(map);
 	free(map);
 }

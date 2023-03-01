@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 21:16:02 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/01 14:57:57 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/01 15:31:48 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,5 @@ void	check_map(char **map)
 	check_shape(map, 1, 0);
 	check_walls(map, 0, 0);
 	check_other(map, 1, 0);
-	ft_putstr_fd("Provided map is valid!", 1);
+	ft_putstr_fd("Provided map is valid!\n", 1);
 }

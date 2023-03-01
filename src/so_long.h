@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:09:50 by paugonca          #+#    #+#             */
-/*   Updated: 2023/02/28 17:04:15 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/01 15:31:07 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ typedef struct s_data {
 }				t_data;
 
 //Map and check utils
-char	**map_load(char *path);
+char	**map_load(char *path, t_list *cursor);
 void	check_map(char **map);
 
 //Print utils

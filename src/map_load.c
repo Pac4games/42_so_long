@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 16:49:40 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/01 14:56:45 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/01 15:29:59 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,10 @@ static t_list	*map_get(char *path)
 	return (map);
 }
 
-char	**map_load(char *path)
+char	**map_load(char *path, t_list *cursor)
 {
 	int		p;
 	char	**res;
-	t_list	*cursor;
 	t_list	*map;
 
 	p = 0;
