@@ -6,11 +6,30 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 16:49:40 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/01 11:23:58 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/01 14:56:45 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+static int	map_open(char *path)
+{
+	int		p;
+	int		i;
+	char	*ext;
+
+	p = 0;
+	i = 0;
+	ext = ".ber";
+	while (path[p])
+		p++;
+	while (p > 0 && path[p] != '.')
+		p--;
+	while (path[p] && ext[i])
+		if (path[p++] != ext[i++])
+			print_error("provided file is not a \".ber\" map.");
+	return (open(path, O_RDONLY));
+}
 
 static t_list	*map_get(char *path)
 {
@@ -18,13 +37,13 @@ static t_list	*map_get(char *path)
 	t_list	*map;
 	char	*line;
 
-	fd = open(path, O_RDONLY);
+	fd = map_open(path);
 	map = 0;
 	if (fd == -1)
-		print_error("Failed to read map.\n");
+		print_error("Failed to read map.");
 	line = get_next_line(fd);
 	if (!line)
-		print_error("provided map is empty.\n");
+		print_error("provided map is empty.");
 	while (line)
 	{
 		ft_lstadd_back(&map, ft_lstnew(line));

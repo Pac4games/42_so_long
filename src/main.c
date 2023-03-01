@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:33:05 by paugonca          #+#    #+#             */
-/*   Updated: 2023/02/28 17:21:59 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/01 14:57:02 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int ac, char **av)
 
 	map = 0;
 	if (ac != 2)
-		print_error("Please select one and only one map.\n");
+		print_error("Please select one and only one map.");
 	map = map_load(av[1]);
 	check_map(map);
 	free(map);
