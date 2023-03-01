@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:09:50 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/01 16:16:03 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/01 21:58:00 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,11 @@
 # include <fcntl.h>
 
 //Assets path definitions
-# define PLAYER_FRONT "assets/luka_front.xpm"
+# define PLAYER_S "assets/luka_front.xpm"
 # define WALL "assets/wall_front.xpm"
 # define FLOOR "assets/floor.xpm"
 # define COLLECTIBLE "assets/antidote1.xpm"
+# define EXIT "assets/exit.xpm"
 
 typedef struct s_data {
 	void	*mlx;
@@ -39,6 +40,8 @@ typedef struct s_data {
 	int		y;
 	int		size_x;
 	int		size_y;
+	int		img_x;
+	int		img_y;
 	int		bits_per_pixel;
 	int		line_lenght;
 	int		endian;
