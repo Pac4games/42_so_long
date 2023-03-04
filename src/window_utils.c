@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:35:03 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/03 12:35:08 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/04 22:54:04 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	window_set_tile(char tile, int x, int y)
 				&(*window()).img_x, &(*window()).img_y);
 	else if (tile == 'P')
 		(*window()).img = mlx_xpm_file_to_image((*window()).mlx,
-					PLAYER_DOWN, &(*window()).img_x, &(*window()).img_y);
+				PLAYER_DOWN, &(*window()).img_x, &(*window()).img_y);
 	else if (tile == 'C')
 		(*window()).img = mlx_xpm_file_to_image((*window()).mlx,
 				COLLECTIBLE, &(*window()).img_x, &(*window()).img_y);
@@ -57,5 +57,12 @@ void	window_create(char **map)
 	(*window()).win = mlx_new_window((*window()).mlx, (*window()).size_x * 64,
 			(*window()).size_y * 64, "Silver Rush");
 	window_load(map, 0, 0);
+	mlx_key_hook((*window()).win, player_move, 0);
 	mlx_loop((*window()).mlx);
 }
+/*
+void	window_upload(char **map)
+{
+	mlx_clear_window((*window()).mlx, (*window()).win);
+}
+*/

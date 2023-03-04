@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:09:50 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/03 13:53:43 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/04 22:29:03 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void	check_map(char **map);
 
 //Game utils
 void	window_create(char **map);
+int		player_move(int key);
 
 //Print utils
 void	print_error(char *msg);
