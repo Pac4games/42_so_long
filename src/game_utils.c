@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 22:11:04 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/06 13:53:54 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/06 14:39:25 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,7 @@ t_pos	get_player_pos(char **map)
 int	player_collision(char **map, int x, int y)
 {
 	if (map[y][x] == '1')
-	{
-		ft_putstr_fd("Can't walk into walls!\n", 1);
 		return (1);
-	}
 	return (0);
 }
 
