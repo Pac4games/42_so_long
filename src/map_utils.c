@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 16:49:40 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/06 14:44:57 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/06 15:07:08 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,14 +99,21 @@ int	map_size(char **map, char axis)
 void	map_update(char **map, int x, int y)
 {
 	static int	steps;
+	static int	health;
 
-	if (map[y][x] == 'C')
-		ft_putstr_fd("Antidote collected.\n", 1);
+	if (map[y][x] == 'C' || !steps)
+		health = 5;
 	else if (map[y][x] == 'E')
-		print_game_over("Exit reached, you win!\n");
+		print_game_over("Exit reached, you win!");
 	steps++;
 	ft_putstr_fd("Steps: ", 1);
 	ft_putnbr_fd(steps, 1);
 	ft_putchar_fd('\n', 1);
+	ft_putstr_fd("HP: ", 1);
+	ft_putnbr_fd(health, 1);
+	ft_putchar_fd('\n', 1);
+	if (!health)
+		print_game_over("GAME OVER! You died by poison!");
+	health--;
 	map[y][x] = 'P';
 }

@@ -1,0 +1,10 @@
+TODO list:
+- implement map path check;
+- add more levels;
+- add enemies;
+- display the health and steps on screen instead of in the shell;
+- add sprite animation;
+
+Optional:
+- revamp the sprites;
+- trailer;
