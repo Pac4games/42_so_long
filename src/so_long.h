@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:09:50 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/06 14:39:32 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/06 21:58:38 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@
 
 //Assets path definitions
 # define PLAYER_DOWN "assets/luka_down.xpm"
+# define PLAYER_UP "assets/luka_up.xpm"
+# define PLAYER_LEFT "assets/luka_left.xpm"
+# define PLAYER_RIGHT "assets/luka_right.xpm"
 # define WALL "assets/wall_front.xpm"
 # define FLOOR "assets/floor.xpm"
 # define COLLECTIBLE "assets/antidote1.xpm"
@@ -76,7 +79,7 @@ void		check_map(char **map);
 
 //Game utils
 void		window_create(char **map);
-void		window_load(char **map, int p, int i);
+void		window_load(char **map, char *player, int p, int i);
 int			window_update(void);
 int			player_move(int key, char **map);
 

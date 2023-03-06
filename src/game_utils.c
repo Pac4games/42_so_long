@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 22:11:04 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/06 14:39:25 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/06 22:01:40 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,26 @@ int	player_collision(char **map, int x, int y)
 	return (0);
 }
 
+static char	*get_player_sprite(int key, char *sprite)
+{
+	if (key == key_down || !sprite)
+		return (PLAYER_DOWN);
+	else if (key == key_up)
+		return (PLAYER_UP);
+	else if (key == key_left)
+		return (PLAYER_LEFT);
+	else if (key == key_right)
+		return (PLAYER_RIGHT);
+	return (sprite);
+}
+
 int	player_move(int key, char **map)
 {
-	t_pos	pos;
+	t_pos		pos;
+	static char	*sprite;
 
 	pos = get_player_pos(map);
+	sprite = get_player_sprite(key, sprite);
 	map[pos.y][pos.x] = '0';
 	if (key == key_up && !player_collision(map, pos.x, pos.y - 1))
 		map_update(map, pos.x, pos.y - 1);
@@ -62,6 +77,6 @@ int	player_move(int key, char **map)
 		map_update(map, pos.x + 1, pos.y);
 	else
 		map[pos.y][pos.x] = 'P';
-	window_load(map, 0, 0);	
+	window_load(map, sprite, 0, 0);	
 	return (0);
 }
