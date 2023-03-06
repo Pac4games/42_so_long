@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:33:05 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/01 16:13:44 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/05 00:17:29 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ t_data	*window(void)
 
 int	main(int ac, char **av)
 {
-	char	**map;
-	t_list	*cursor;
+	static char	**map;
+	t_list		*cursor;
 
 	map = 0;
 	cursor = 0;

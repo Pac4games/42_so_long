@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:35:03 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/04 22:54:04 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/06 12:27:16 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	window_set_tile(char tile, int x, int y)
 		x * 64, y * 64);
 }
 
-static void	window_load(char **map, int p, int i)
+void	window_load(char **map, int p, int i)
 {
 	while (map[p])
 	{
@@ -57,12 +57,13 @@ void	window_create(char **map)
 	(*window()).win = mlx_new_window((*window()).mlx, (*window()).size_x * 64,
 			(*window()).size_y * 64, "Silver Rush");
 	window_load(map, 0, 0);
-	mlx_key_hook((*window()).win, player_move, 0);
+	mlx_key_hook((*window()).win, player_move, map);
+	mlx_loop_hook((*window()).win, window_update, 0);
 	mlx_loop((*window()).mlx);
 }
-/*
-void	window_upload(char **map)
+
+int	window_update(void)
 {
 	mlx_clear_window((*window()).mlx, (*window()).win);
+	return (0);
 }
-*/

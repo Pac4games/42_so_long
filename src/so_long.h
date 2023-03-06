@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:09:50 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/04 22:29:03 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/06 12:30:42 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,12 @@ typedef struct s_data
 	char	*addr;
 }				t_data;
 
+typedef struct s_pos
+{
+	int	x;
+	int	y;
+}				t_pos;
+
 enum e_keys
 {
 	key_up = 119,
@@ -59,20 +65,24 @@ enum e_keys
 	key_right = 100
 };
 
-//Window (duh)
-t_data	*window(void);
+//Structs
+t_data		*window(void);
 
 //Map and check utils
-char	**map_load(char *path, t_list *cursor);
-int		map_size(char **map, char axis);
-void	check_map(char **map);
+char		**map_load(char *path, t_list *cursor);
+int			map_size(char **map, char axis);
+void		map_update(char **map, int x, int y);
+void		check_map(char **map);
 
 //Game utils
-void	window_create(char **map);
-int		player_move(int key);
+void		window_create(char **map);
+void		window_load(char **map, int p, int i);
+int			window_update(void);
+int			player_move(int key, char **map);
 
 //Print utils
-void	print_error(char *msg);
-void	print_matrix(char **matrix);
+void		print_matrix(char **matrix);
+void		print_error(char *msg);
+void		print_game_over(char *msg);
 
 #endif

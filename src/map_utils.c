@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 16:49:40 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/01 16:01:53 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/06 12:50:36 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,4 +94,15 @@ int	map_size(char **map, char axis)
 			p++;
 	}
 	return (p);
+}
+
+void	map_update(char **map, int x, int y)
+{
+	if (map[y][x] == '0')
+		ft_putstr_fd("Walking...\n", 1);
+	else if (map[y][x] == 'C')
+		ft_putstr_fd("Antidote collected!\n", 1);
+	else if (map[y][x] == 'E')
+		print_game_over("Exit reached, you win!\n");
+	map[y][x] = 'P';
 }
