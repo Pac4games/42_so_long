@@ -6,16 +6,16 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:09:50 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/07 14:14:42 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/07 14:21:50 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../mlx_linux/mlx.h"
-# include "../libft/libft.h"
-# include "../get_next_line/get_next_line.h"
+# include "../libs/mlx_linux/mlx.h"
+# include "../libs/libft/libft.h"
+# include "../libs/get_next_line/get_next_line.h"
 # include <stdio.h>
 # include <fcntl.h>
 
