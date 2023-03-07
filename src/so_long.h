@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:09:50 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/07 13:56:51 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/07 14:14:42 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,6 @@ int			player_move(int key, char **map);
 //Print utils
 void		print_matrix(char **matrix);
 void		print_error(char *msg);
-void		print_game_over(char *msg);
+int			print_game_over(char *msg);
 
 #endif

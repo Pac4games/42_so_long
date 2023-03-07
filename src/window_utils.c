@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:35:03 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/07 13:55:07 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/07 14:14:15 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void	window_create(char **map)
 			(*window()).size_y * 64, "Silver Rush");
 	window_load(map, PLAYER_DOWN, 0, 0);
 	mlx_key_hook((*window()).win, player_move, map);
+	mlx_hook((*window()).win, 17, 0, print_game_over, "Game closed.");
 	mlx_loop_hook((*window()).win, window_update, 0);
 	mlx_loop((*window()).mlx);
 }

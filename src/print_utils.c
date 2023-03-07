@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 18:22:06 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/06 12:21:59 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/07 14:13:59 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,10 @@ void	print_error(char *msg)
 	exit(EXIT_FAILURE);
 }
 
-void	print_game_over(char *msg)
+int	print_game_over(char *msg)
 {
 	ft_putstr_fd(msg, 1);
 	ft_putchar_fd('\n', 1);
 	exit(EXIT_SUCCESS);
+	return (0);
 }
