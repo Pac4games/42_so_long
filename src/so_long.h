@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:09:50 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/06 21:58:38 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/07 13:56:51 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdio.h>
 # include <fcntl.h>
 
-//Assets path definitions
+//Assets path macros
 # define PLAYER_DOWN "assets/luka_down.xpm"
 # define PLAYER_UP "assets/luka_up.xpm"
 # define PLAYER_LEFT "assets/luka_left.xpm"
@@ -29,7 +29,7 @@
 # define COLLECTIBLE "assets/antidote1.xpm"
 # define EXIT "assets/exit.xpm"
 
-typedef struct s_data 
+typedef struct s_data
 {
 	void	*mlx;
 	void	*win;

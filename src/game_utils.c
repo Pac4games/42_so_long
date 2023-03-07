@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 22:11:04 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/06 22:01:40 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/07 13:56:13 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,6 @@ int	player_move(int key, char **map)
 		map_update(map, pos.x + 1, pos.y);
 	else
 		map[pos.y][pos.x] = 'P';
-	window_load(map, sprite, 0, 0);	
+	window_load(map, sprite, 0, 0);
 	return (0);
 }
