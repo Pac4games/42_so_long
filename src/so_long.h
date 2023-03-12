@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:09:50 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/07 14:21:50 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/12 15:26:45 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@
 # define WALL "assets/wall_front.xpm"
 # define FLOOR "assets/floor.xpm"
 # define COLLECTIBLE "assets/antidote1.xpm"
-# define EXIT "assets/exit.xpm"
+# define EXIT_CLOSED "assets/exit_closed.xpm"
+# define EXIT_OPEN "assets/exit_open.xpm"
 
 typedef struct s_data
 {
@@ -82,6 +83,7 @@ void		window_create(char **map);
 void		window_load(char **map, char *player, int p, int i);
 int			window_update(void);
 int			player_move(int key, char **map);
+char		*get_exit_sprite(char **map);
 
 //Print utils
 void		print_matrix(char **matrix);

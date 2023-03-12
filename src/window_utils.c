@@ -6,13 +6,13 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:35:03 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/07 14:14:15 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/12 15:25:59 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	window_set_tile(char tile, char *player, int x, int y)
+static void	window_set_tile(char tile, char *player, char *exit, int x, int y)
 {
 	if (tile == '1')
 		(*window()).img = mlx_xpm_file_to_image((*window()).mlx, WALL,
@@ -28,7 +28,7 @@ static void	window_set_tile(char tile, char *player, int x, int y)
 				COLLECTIBLE, &(*window()).img_x, &(*window()).img_y);
 	else if (tile == 'E')
 		(*window()).img = mlx_xpm_file_to_image((*window()).mlx,
-				EXIT, &(*window()).img_x, &(*window()).img_y);
+				exit, &(*window()).img_x, &(*window()).img_y);
 	else if (tile != '\n')
 		print_error("invalid object detected in map.");
 	mlx_put_image_to_window((*window()).mlx, (*window()).win, (*window()).img,
@@ -37,12 +37,15 @@ static void	window_set_tile(char tile, char *player, int x, int y)
 
 void	window_load(char **map, char *player, int p, int i)
 {
+	static char *exit;
+
+	exit = get_exit_sprite(map);
 	while (map[p])
 	{
 		i = 0;
 		while (map[p][i])
 		{
-			window_set_tile(map[p][i], player, i, p);
+			window_set_tile(map[p][i], player, exit, i, p);
 			i++;
 		}
 		p++;

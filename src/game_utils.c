@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 22:11:04 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/07 13:56:13 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/12 15:27:07 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,27 @@ static char	*get_player_sprite(int key, char *sprite)
 	else if (key == key_right)
 		return (PLAYER_RIGHT);
 	return (sprite);
+}
+
+char	*get_exit_sprite(char **map)
+{
+	int	p;
+	int	i;
+	int	collet;
+
+	p = 0;
+	collet = 0;
+	while (map[p])
+	{
+		i = 0;
+		while (map[p][i])
+			if (map[p][i++] == 'C')
+				collet++;
+		p++;
+	}
+	if (collet)
+		return (EXIT_CLOSED);
+	return (EXIT_OPEN);
 }
 
 int	player_move(int key, char **map)
