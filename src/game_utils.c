@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 22:11:04 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/12 15:27:07 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/14 13:24:44 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,23 @@ t_pos	get_player_pos(char **map)
 
 int	player_collision(char **map, int x, int y)
 {
+	int	p;
+	int	i;
+	int	collet;
+
+	p = 0;
+	collet = 0;
+	while (map[p])
+	{
+		i = 0;
+		while (map[p][i])
+			if (map[p][i++] == 'C')
+				collet++;
+		p++;
+	}
 	if (map[y][x] == '1')
+		return (1);
+	else if (map[y][x] == 'E' && collet)
 		return (1);
 	return (0);
 }
