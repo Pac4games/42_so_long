@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:09:50 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/14 13:13:33 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/15 15:33:51 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdio.h>
 # include <fcntl.h>
 
-//Assets path macros
+//Defining sprites 
 # define PLAYER_DOWN "assets/luka_down.xpm"
 # define PLAYER_UP "assets/luka_up.xpm"
 # define PLAYER_LEFT "assets/luka_left.xpm"
@@ -29,6 +29,13 @@
 # define COLLECTIBLE "assets/antidote1.xpm"
 # define EXIT_CLOSED "assets/exit_closed.xpm"
 # define EXIT_OPEN "assets/exit_open.xpm"
+
+//Defining input
+# define KEY_UP 119
+# define KEY_DOWN 115
+# define KEY_LEFT 97
+# define KEY_RIGHT 100
+# define KEY_ESC 65307
 
 typedef struct s_data
 {
