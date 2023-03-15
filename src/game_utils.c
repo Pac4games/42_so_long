@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 22:11:04 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/15 15:38:39 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/15 16:21:30 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ int	player_move(int key, char **map)
 	else if (key == KEY_RIGHT && !player_collision(map, pos.x + 1, pos.y))
 		map_update(map, pos.x + 1, pos.y);
 	else if (key == KEY_ESC)
-		print_game_over("Game closed.");
+		print_game_over("Game closed.", map);
 	else
 		map[pos.y][pos.x] = 'P';
 	window_load(map, sprite, 0, 0);

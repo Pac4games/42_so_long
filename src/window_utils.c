@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:35:03 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/15 15:27:07 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/15 16:26:59 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,22 @@ int	window_update(void)
 {
 	mlx_clear_window((*window()).mlx, (*window()).win);
 	return (0);
+}
+
+void	window_clear(void)
+{
+	int	x;
+	int	y;
+
+	destroy(mlx_xpm_file_to_image((*window()).mlx, PLAYER_UP, &x, &y));
+	destroy(mlx_xpm_file_to_image((*window()).mlx, PLAYER_DOWN, &x, &y));
+	destroy(mlx_xpm_file_to_image((*window()).mlx, PLAYER_LEFT, &x, &y));
+	destroy(mlx_xpm_file_to_image((*window()).mlx, PLAYER_RIGHT, &x, &y));
+	destroy(mlx_xpm_file_to_image((*window()).mlx, FLOOR, &x, &y));
+	destroy(mlx_xpm_file_to_image((*window()).mlx, WALL, &x, &y));
+	destroy(mlx_xpm_file_to_image((*window()).mlx, EXIT_OPEN, &x, &y));
+	destroy(mlx_xpm_file_to_image((*window()).mlx, EXIT_CLOSED, &x, &y));
+	destroy(mlx_xpm_file_to_image((*window()).mlx, COLLECTIBLE, &x, &y));
 }
 
 void	window_create(char **map)

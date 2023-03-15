@@ -6,7 +6,7 @@
 #    By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/17 15:53:29 by paugonca          #+#    #+#              #
-#    Updated: 2023/03/07 14:28:20 by paugonca         ###   ########.fr        #
+#    Updated: 2023/03/15 16:59:52 by paugonca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRC_NAME	=	main.c			\
 				check_utils.c	\
 				window_utils.c	\
 				game_utils.c	\
+				clear_utils.c
 
 SRC		=	$(addprefix $(SRC_PATH)/, $(SRC_NAME))
 OBJ		=	$(patsubst $(SRC_PATH)/%.c, $(OBJ_PATH)/%.o, $(SRC))

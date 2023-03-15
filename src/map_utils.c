@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 16:49:40 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/14 13:13:26 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/15 16:21:59 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void	map_update(char **map, int x, int y)
 	if (map[y][x] == 'C' || !steps)
 		health = 5;
 	else if (map[y][x] == 'E')
-		print_game_over("Exit reached, you win!");
+		print_game_over("Exit reached, you win!", map);
 	steps++;
 	ft_putstr_fd("Steps: ", 1);
 	ft_putnbr_fd(steps, 1);
@@ -113,7 +113,7 @@ void	map_update(char **map, int x, int y)
 	ft_putnbr_fd(health, 1);
 	ft_putchar_fd('\n', 1);
 	if (!health)
-		print_game_over("GAME OVER! You died by poison!");
+		print_game_over("GAME OVER! You died by poison!", map);
 	health--;
 	map[y][x] = 'P';
 }
