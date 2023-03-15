@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:09:50 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/15 17:09:59 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/15 17:38:40 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,15 +68,7 @@ typedef struct s_pos
 	int	y;
 }				t_pos;
 
-enum e_keys
-{
-	key_up = 119,
-	key_down = 115,
-	key_left = 97,
-	key_right = 100
-};
-
-//Structs
+//Window struct
 t_data		*window(void);
 
 //Map and check utils
@@ -97,6 +89,7 @@ char		*get_exit_sprite(char **map);
 //Print utils
 void		print_matrix(char **matrix);
 void		print_error(char *msg);
-int			print_game_over(char *msg, char **map);
+void		print_onscreen(char *msg, int x, int y);
+int			print_game_over(char *msg);
 
 #endif

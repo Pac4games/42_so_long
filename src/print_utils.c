@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 18:22:06 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/15 17:08:54 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/15 17:38:13 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	print_error(char *msg)
 	exit(EXIT_FAILURE);
 }
 
-int	print_game_over(char *msg, char **map)
+int	print_game_over(char *msg)
 {
 	ft_putstr_fd(msg, 1);
 	ft_putchar_fd('\n', 1);
@@ -37,7 +37,11 @@ int	print_game_over(char *msg, char **map)
 	window_destroy_sprites();
 	mlx_destroy_window((*window()).mlx, (*window()).win);
 	mlx_destroy_display((*window()).mlx);
-	free(map);
 	exit(EXIT_SUCCESS);
 	return (0);
+}
+
+void	print_onscreen(char *msg, int x, int y)
+{
+	mlx_string_put((*window()).mlx, (*window()).win, x, y, 0, msg);
 }
