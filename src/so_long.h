@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:09:50 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/15 16:23:12 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/15 17:09:59 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void		check_map(char **map);
 void		window_create(char **map);
 void		window_load(char **map, char *player, int p, int i);
 int			window_update(void);
-void		window_clear(void);
+void		window_destroy_sprites(void);
 void		destroy(void *img);
 int			player_move(int key, char **map);
 char		*get_exit_sprite(char **map);

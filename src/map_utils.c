@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 16:49:40 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/15 16:21:59 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/15 17:07:27 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ static t_list	*map_get(char *path)
 		ft_lstadd_back(&map, ft_lstnew(line));
 		line = get_next_line(fd);
 	}
+	free(line);
 	return (map);
 }
 

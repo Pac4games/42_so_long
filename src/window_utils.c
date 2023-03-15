@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:35:03 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/15 16:26:59 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/15 17:09:30 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	window_update(void)
 	return (0);
 }
 
-void	window_clear(void)
+void	window_destroy_sprites(void)
 {
 	int	x;
 	int	y;

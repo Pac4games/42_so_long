@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:33:05 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/05 00:17:29 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/15 17:02:48 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,4 @@ int	main(int ac, char **av)
 	map = map_load(av[1], cursor);
 	check_map(map);
 	window_create(map);
-	free(map);
 }
