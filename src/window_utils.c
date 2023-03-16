@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:35:03 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/15 17:39:36 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/16 15:05:33 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ void	window_create(char **map)
 	(*window()).win = mlx_new_window((*window()).mlx, (*window()).size_x * 64,
 			(*window()).size_y * 64, "Silver Rush");
 	window_load(map, PLAYER_DOWN, 0, 0);
+	print_onscreen("Steps: 0", 4, 16);
+	print_onscreen("HP: 5", 4, 32);
 	mlx_key_hook((*window()).win, player_move, map);
 	mlx_hook((*window()).win, 17, 0, print_game_over, "Game closed.");
 	mlx_loop_hook((*window()).win, window_update, 0);

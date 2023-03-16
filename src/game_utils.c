@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 22:11:04 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/15 17:39:13 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/16 14:56:22 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	player_collision(char **map, int x, int y)
 	return (0);
 }
 
-static char	*get_player_sprite(int key, char *sprite)
+char	*get_player_sprite(int key, char *sprite)
 {
 	if (key == KEY_DOWN || !sprite)
 		return (PLAYER_DOWN);
@@ -99,23 +99,20 @@ char	*get_exit_sprite(char **map)
 int	player_move(int key, char **map)
 {
 	t_pos		pos;
-	static char	*sprite;
 
 	pos = get_player_pos(map);
-	sprite = get_player_sprite(key, sprite);
 	map[pos.y][pos.x] = '0';
 	if (key == KEY_UP && !player_collision(map, pos.x, pos.y - 1))
-		map_update(map, pos.x, pos.y - 1);
+		map_update(map, key, pos.x, pos.y - 1);
 	else if (key == KEY_DOWN && !player_collision(map, pos.x, pos.y + 1))
-		map_update(map, pos.x, pos.y + 1);
+		map_update(map, key, pos.x, pos.y + 1);
 	else if (key == KEY_LEFT && !player_collision(map, pos.x - 1, pos.y))
-		map_update(map, pos.x - 1, pos.y);
+		map_update(map, key, pos.x - 1, pos.y);
 	else if (key == KEY_RIGHT && !player_collision(map, pos.x + 1, pos.y))
-		map_update(map, pos.x + 1, pos.y);
+		map_update(map, key, pos.x + 1, pos.y);
 	else if (key == KEY_ESC)
 		print_game_over("Game closed.");
 	else
 		map[pos.y][pos.x] = 'P';
-	window_load(map, sprite, 0, 0);
 	return (0);
 }

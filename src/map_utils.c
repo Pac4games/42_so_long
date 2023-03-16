@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 16:49:40 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/15 17:38:58 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/16 15:08:09 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,25 +97,25 @@ int	map_size(char **map, char axis)
 	return (p);
 }
 
-void	map_update(char **map, int x, int y)
+void	map_update(char **map, int key, int x, int y)
 {
+	static char	*sprite;
 	static int	steps;
-	static int	health;
+	static int	hp;
 
-	if (map[y][x] == 'C' || !steps)
-		health = 5;
+	sprite = get_player_sprite(key, sprite);
+	if (!steps)
+		hp = 5;
+	if (map[y][x] == 'C')
+		hp = 6;
 	else if (map[y][x] == 'E')
 		print_game_over("Exit reached, you win!");
 	steps++;
-	print_onscreen(ft_strjoin("Steps: ", ft_itoa(steps)), 64, 64);
-	ft_putstr_fd("Steps: ", 1);
-	ft_putnbr_fd(steps, 1);
-	ft_putchar_fd('\n', 1);
-	ft_putstr_fd("HP: ", 1);
-	ft_putnbr_fd(health, 1);
-	ft_putchar_fd('\n', 1);
-	if (!health)
-		print_game_over("GAME OVER! You died by poison!");
-	health--;
+	hp--;
+	if (!hp)
+		print_game_over("GAME OVER! You died by poison.");
 	map[y][x] = 'P';
+	window_load(map, sprite, 0, 0);
+	print_onscreen(ft_strjoin("Steps: ", ft_itoa(steps)), 4, 16);
+	print_onscreen(ft_strjoin("HP: ", ft_itoa(hp)), 4, 32);
 }
