@@ -6,7 +6,7 @@
 #    By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/17 15:53:29 by paugonca          #+#    #+#              #
-#    Updated: 2023/03/16 15:01:38 by paugonca         ###   ########.fr        #
+#    Updated: 2023/03/16 15:50:05 by paugonca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ MLX_LINUX	=	-I/usr/include -Imlx_linux -O3
 SRC_NAME	=	main.c			\
 				map_utils.c		\
 				print_utils.c	\
+				check_path.c	\
 				check_utils.c	\
 				window_utils.c	\
 				game_utils.c	\

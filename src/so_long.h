@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:09:50 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/16 15:01:46 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/17 15:14:25 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,24 +42,12 @@ typedef struct s_data
 	void	*mlx;
 	void	*win;
 	void	*img;
-	void	*player;
-	void	*wall;
-	void	*collectible;
-	void	*floor;
-	void	*exit;
-	void	*enemy;
 	int		x;
 	int		y;
 	int		size_x;
 	int		size_y;
 	int		img_x;
 	int		img_y;
-	int		bits_per_pixel;
-	int		line_lenght;
-	int		endian;
-	int		count;
-	char	**map;
-	char	*addr;
 }				t_data;
 
 typedef struct s_pos
@@ -75,6 +63,7 @@ t_data		*window(void);
 char		**map_load(char *path, t_list *cursor);
 int			map_size(char **map, char axis);
 void		map_update(char **map, int key, int x, int y);
+//void		check_path(char **map);
 void		check_map(char **map);
 
 //Game utils
@@ -83,6 +72,7 @@ void		window_load(char **map, char *player, int p, int i);
 int			window_update(void);
 void		window_destroy_sprites(void);
 void		destroy(void *img);
+t_pos		get_player_pos(char **map);
 int			player_move(int key, char **map);
 char		*get_player_sprite(int key, char *sprite);
 char		*get_exit_sprite(char **map);

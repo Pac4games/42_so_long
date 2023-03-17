@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 21:16:02 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/04 23:13:12 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/17 14:50:41 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,5 @@ void	check_map(char **map)
 	check_shape(map, 1, 0);
 	check_walls(map, 0, 0);
 	check_other(map, 1, 0);
+//	check_path(map);
 }
