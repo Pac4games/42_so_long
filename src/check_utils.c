@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 21:16:02 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/17 14:50:41 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/17 18:13:27 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,32 @@ static void	check_other(char **map, int p, int i)
 
 void	check_map(char **map)
 {
+	char	**tmp;
+	int		p;
+	
 	check_shape(map, 1, 0);
 	check_walls(map, 0, 0);
 	check_other(map, 1, 0);
-//	check_path(map);
+	p = 0;
+	while (map[p])
+		p++;
+	tmp = malloc(p * sizeof(char *));
+	p = 0;
+	while (map[p])
+	{
+		tmp[p] = ft_strdup(map[p]);
+		p++;
+	}
+//	tmp[1][1] = 'C';
+//	print_matrix(map);
+//	ft_putchar_fd('\n', 1);
+//	print_matrix(tmp);
+	p = 0;
+	while (tmp[p])
+	{
+		free(tmp[p]);
+		p++;
+	}
+	free(tmp);
+//	check_path(tmp, get_player_pos(map), count_collet(map));
 }

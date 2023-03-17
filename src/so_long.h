@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:09:50 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/17 15:14:25 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/17 18:06:10 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void		window_load(char **map, char *player, int p, int i);
 int			window_update(void);
 void		window_destroy_sprites(void);
 void		destroy(void *img);
+int			count_collet(char **map);
 t_pos		get_player_pos(char **map);
 int			player_move(int key, char **map);
 char		*get_player_sprite(int key, char *sprite);
