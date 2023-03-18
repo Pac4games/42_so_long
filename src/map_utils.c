@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 16:49:40 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/18 13:55:14 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/18 14:31:27 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,5 @@ void	map_update(char **map, int key, int x, int y)
 		print_game_over("GAME OVER! You died by poison.");
 	map[y][x] = 'P';
 	window_load(map, sprite, 0, 0);
-	print_onscreen(ft_strjoin("Steps: ", ft_itoa(steps)), 4, 16);
-	print_onscreen(ft_strjoin("HP: ", ft_itoa(hp)), 4, 32);
+	display_stats(steps, hp);
 }
