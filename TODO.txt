@@ -1,5 +1,4 @@
 TODO list:
-- implement map path check;
 - add more levels;
 - add enemies;
 - add sprite animation;
