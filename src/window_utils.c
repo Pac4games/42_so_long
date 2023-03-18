@@ -6,30 +6,33 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:35:03 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/16 15:05:33 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/18 13:53:52 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	window_set_tile(char tile, char *player, char *exit, int x, int y)
+static void	window_set_tile(char **map, char *player, int x, int y)
 {
-	if (tile == '1')
+	static char	*exit;
+
+	exit = get_exit_sprite(map);
+	if (map[y][x] == '1')
 		(*window()).img = mlx_xpm_file_to_image((*window()).mlx, WALL,
 				&(*window()).img_x, &(*window()).img_y);
-	else if (tile == '0')
+	else if (map[y][x] == '0')
 		(*window()).img = mlx_xpm_file_to_image((*window()).mlx, FLOOR,
 				&(*window()).img_x, &(*window()).img_y);
-	else if (tile == 'P')
+	else if (map[y][x] == 'P')
 		(*window()).img = mlx_xpm_file_to_image((*window()).mlx,
 				player, &(*window()).img_x, &(*window()).img_y);
-	else if (tile == 'C')
+	else if (map[y][x] == 'C')
 		(*window()).img = mlx_xpm_file_to_image((*window()).mlx,
 				COLLECTIBLE, &(*window()).img_x, &(*window()).img_y);
-	else if (tile == 'E')
+	else if (map[y][x] == 'E')
 		(*window()).img = mlx_xpm_file_to_image((*window()).mlx,
 				exit, &(*window()).img_x, &(*window()).img_y);
-	else if (tile != '\n')
+	else if (map[y][x] != '\n')
 		print_error("invalid object detected in map.");
 	mlx_put_image_to_window((*window()).mlx, (*window()).win, (*window()).img,
 		x * 64, y * 64);
@@ -37,15 +40,12 @@ static void	window_set_tile(char tile, char *player, char *exit, int x, int y)
 
 void	window_load(char **map, char *player, int p, int i)
 {
-	static char *exit;
-
-	exit = get_exit_sprite(map);
 	while (map[p])
 	{
 		i = 0;
 		while (map[p][i])
 		{
-			window_set_tile(map[p][i], player, exit, i, p);
+			window_set_tile(map, player, i, p);
 			i++;
 		}
 		p++;

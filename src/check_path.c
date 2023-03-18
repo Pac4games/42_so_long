@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 15:35:20 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/18 13:41:22 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/18 13:56:49 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	check_path(char **map, int x, int y)
 	char	**tmp;
 	int		p;
 	int		collet;
-	
+
 	p = 0;
 	collet = 0;
 	while (map[p])
@@ -65,6 +65,10 @@ void	check_path(char **map, int x, int y)
 	if (!tmp)
 		return ;
 	find_path(tmp, x, y, &collet);
+	p = 0;
+	while (tmp[p])
+		free(tmp[p++]);
+	free(tmp);
 	if (collet != (count_collet(map) + 1))
 		print_error("provided map does not contain a valid path.");
 }
