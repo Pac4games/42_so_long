@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 15:35:20 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/18 13:56:49 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/18 14:19:48 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ void	check_path(char **map, int x, int y)
 	collet = 0;
 	while (map[p])
 		p++;
-	tmp = malloc(p * sizeof(char *) + 1);
+	tmp = malloc((p + 1) * sizeof(char *));
+	tmp[p] = NULL;
 	p = 0;
 	while (map[p])
 	{
