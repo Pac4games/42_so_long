@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 22:11:04 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/16 14:56:22 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/18 16:23:15 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ char	*get_player_sprite(int key, char *sprite)
 	return (sprite);
 }
 
-char	*get_exit_sprite(char **map)
+char	*get_door_sprite(char **map)
 {
 	int	p;
 	int	i;
@@ -92,8 +92,8 @@ char	*get_exit_sprite(char **map)
 		p++;
 	}
 	if (collet)
-		return (EXIT_CLOSED);
-	return (EXIT_OPEN);
+		return (DOOR_CLOSED);
+	return (DOOR_OPEN);
 }
 
 int	player_move(int key, char **map)
@@ -111,7 +111,7 @@ int	player_move(int key, char **map)
 	else if (key == KEY_RIGHT && !player_collision(map, pos.x + 1, pos.y))
 		map_update(map, key, pos.x + 1, pos.y);
 	else if (key == KEY_ESC)
-		print_game_over("Game closed.");
+		print_game_over("Game closed.", map);
 	else
 		map[pos.y][pos.x] = 'P';
 	return (0);

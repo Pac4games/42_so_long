@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:35:03 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/18 13:53:52 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/18 16:52:17 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static void	window_set_tile(char **map, char *player, int x, int y)
 {
-	static char	*exit;
+	static char	*door;
 
-	exit = get_exit_sprite(map);
+	door = get_door_sprite(map);
 	if (map[y][x] == '1')
 		(*window()).img = mlx_xpm_file_to_image((*window()).mlx, WALL,
 				&(*window()).img_x, &(*window()).img_y);
@@ -31,9 +31,9 @@ static void	window_set_tile(char **map, char *player, int x, int y)
 				COLLECTIBLE, &(*window()).img_x, &(*window()).img_y);
 	else if (map[y][x] == 'E')
 		(*window()).img = mlx_xpm_file_to_image((*window()).mlx,
-				exit, &(*window()).img_x, &(*window()).img_y);
+				door, &(*window()).img_x, &(*window()).img_y);
 	else if (map[y][x] != '\n')
-		print_error("invalid object detected in map.");
+		print_error("invalid object detected in map.", map);
 	mlx_put_image_to_window((*window()).mlx, (*window()).win, (*window()).img,
 		x * 64, y * 64);
 }
@@ -69,8 +69,8 @@ void	window_destroy_sprites(void)
 	destroy(mlx_xpm_file_to_image((*window()).mlx, PLAYER_RIGHT, &x, &y));
 	destroy(mlx_xpm_file_to_image((*window()).mlx, FLOOR, &x, &y));
 	destroy(mlx_xpm_file_to_image((*window()).mlx, WALL, &x, &y));
-	destroy(mlx_xpm_file_to_image((*window()).mlx, EXIT_OPEN, &x, &y));
-	destroy(mlx_xpm_file_to_image((*window()).mlx, EXIT_CLOSED, &x, &y));
+	destroy(mlx_xpm_file_to_image((*window()).mlx, DOOR_OPEN, &x, &y));
+	destroy(mlx_xpm_file_to_image((*window()).mlx, DOOR_CLOSED, &x, &y));
 	destroy(mlx_xpm_file_to_image((*window()).mlx, COLLECTIBLE, &x, &y));
 }
 
@@ -85,7 +85,7 @@ void	window_create(char **map)
 	print_onscreen("Steps: 0", 4, 16);
 	print_onscreen("HP: 5", 4, 32);
 	mlx_key_hook((*window()).win, player_move, map);
-	mlx_hook((*window()).win, 17, 0, print_game_over, "Game closed.");
+	mlx_hook((*window()).win, 17, 0, print_game_closed, map);
 	mlx_loop_hook((*window()).win, window_update, 0);
 	mlx_loop((*window()).mlx);
 }

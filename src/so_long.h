@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:09:50 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/18 14:31:04 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/18 16:52:06 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@
 # define WALL "assets/wall_front.xpm"
 # define FLOOR "assets/floor.xpm"
 # define COLLECTIBLE "assets/antidote1.xpm"
-# define EXIT_CLOSED "assets/exit_closed.xpm"
-# define EXIT_OPEN "assets/exit_open.xpm"
+# define DOOR_CLOSED "assets/door_closed.xpm"
+# define DOOR_OPEN "assets/door_open.xpm"
 
 //Defining input
 # define KEY_UP 119
@@ -76,12 +76,13 @@ void		display_stats(int steps, int hp);
 t_pos		get_player_pos(char **map);
 int			player_move(int key, char **map);
 char		*get_player_sprite(int key, char *sprite);
-char		*get_exit_sprite(char **map);
+char		*get_door_sprite(char **map);
 
 //Print utils
 void		print_matrix(char **matrix);
-void		print_error(char *msg);
+void		print_error(char *msg, char **map);
+void		print_game_over(char *msg, char **map);
+int			print_game_closed(char **map);
 void		print_onscreen(char *msg, int x, int y);
-int			print_game_over(char *msg);
 
 #endif

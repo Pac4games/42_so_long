@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 21:16:02 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/18 11:04:29 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/18 16:22:23 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,54 +17,54 @@ static void	check_shape(char **map, int p, int i)
 	i = ft_strlen(map[0]);
 	while (map[p])
 		if (ft_strlen(map[p++]) != i)
-			print_error("provided map is not rectangular.");
+			print_error("provided map is not rectangular.", map);
 	if (p < 3 || i - 1 < 3)
-		print_error("provided map is too small.");
+		print_error("provided map is too small.", map);
 }
 
 static void	check_walls(char **map, int p, int i)
 {
 	while (map[p][i] && map[p][i] != '\n')
 		if (map[p][i++] != '1')
-			print_error("provided map not surrounded by walls.");
+			print_error("provided map not surrounded by walls.", map);
 	p++;
 	while (map[p])
 	{
 		i = ft_strlen(map[p]) - 2;
 		if (map[p][0] != '1' || map[p][i] != '1')
-			print_error("provided map not surrounded by walls.");
+			print_error("provided map not surrounded by walls.", map);
 		p++;
 	}
 	p--;
 	i = 0;
 	while (map[p][i] && map[p][i] != '\n')
 		if (map[p][i++] != '1')
-			print_error("provided map not surrounded by walls.");
+			print_error("provided map not surrounded by walls.", map);
 }
 
-static void	check_other_errors(int player, int exit, int collectible)
+static void	check_other_errors(char **map, int player, int exit, int collet)
 {
 	if (player == 0)
-		print_error("provided map does not contain a starting position.");
+		print_error("provided map does not contain a starting position.", map);
 	else if (player > 1)
-		print_error("provided map contains multiple starting positions.");
+		print_error("provided map contains multiple starting positions.", map);
 	if (exit == 0)
-		print_error("provided map does not contain an exit.");
+		print_error("provided map does not contain an exit.", map);
 	else if (exit > 1)
-		print_error("provided map contains multiple exits.");
-	if (collectible == 0)
-		print_error("provided map does not contain any collectibles.");
+		print_error("provided map contains multiple exits.", map);
+	if (collet == 0)
+		print_error("provided map does not contain any collets.", map);
 }
 
 static void	check_other(char **map, int p, int i)
 {
 	int	player;
 	int	exit;
-	int	collectible;
+	int	collet;
 
 	player = 0;
 	exit = 0;
-	collectible = 0;
+	collet = 0;
 	while (map[p])
 	{
 		i = 0;
@@ -75,12 +75,12 @@ static void	check_other(char **map, int p, int i)
 			else if (map[p][i] == 'E')
 				exit++;
 			else if (map[p][i] == 'C')
-				collectible++;
+				collet++;
 			i++;
 		}
 		p++;
 	}
-	check_other_errors(player, exit, collectible);
+	check_other_errors(map, player, exit, collet);
 }
 
 void	check_map(char **map)

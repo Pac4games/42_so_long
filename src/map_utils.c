@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 16:49:40 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/18 14:31:27 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/18 16:55:15 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	map_open(char *path)
 		p--;
 	while (path[p] && ext[i])
 		if (path[p++] != ext[i++])
-			print_error("provided file is not a \".ber\" map.");
+			print_error("provided file is not a \".ber\" map.", 0);
 	return (open(path, O_RDONLY));
 }
 
@@ -40,10 +40,10 @@ static t_list	*map_get(char *path)
 	fd = map_open(path);
 	map = 0;
 	if (fd == -1)
-		print_error("Failed to read map.");
+		print_error("Failed to read map.", 0);
 	line = get_next_line(fd);
 	if (!line)
-		print_error("provided map is empty.");
+		print_error("provided map is empty.", 0);
 	while (line)
 	{
 		ft_lstadd_back(&map, ft_lstnew(line));
@@ -77,7 +77,7 @@ char	**map_load(char *path, t_list *cursor)
 		res[p++] = cursor->content;
 		cursor = cursor->next;
 	}
-	res[p] = 0;
+	res[p] = NULL;
 	ft_lstclear(&map);
 	return (res);
 }
@@ -109,11 +109,11 @@ void	map_update(char **map, int key, int x, int y)
 	if (map[y][x] == 'C')
 		hp = 6;
 	else if (map[y][x] == 'E')
-		print_game_over("Exit reached, you win!");
+		print_game_over("Exit reached, you win!", map);
 	steps++;
 	hp--;
 	if (!hp)
-		print_game_over("GAME OVER! You died by poison.");
+		print_game_over("GAME OVER! You died by poison.", map);
 	map[y][x] = 'P';
 	window_load(map, sprite, 0, 0);
 	display_stats(steps, hp);

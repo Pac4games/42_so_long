@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 15:35:20 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/18 14:19:48 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/18 15:20:29 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,5 @@ void	check_path(char **map, int x, int y)
 		free(tmp[p++]);
 	free(tmp);
 	if (collet != (count_collet(map) + 1))
-		print_error("provided map does not contain a valid path.");
+		print_error("provided map does not contain a valid path.", map);
 }
