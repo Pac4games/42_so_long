@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 16:49:40 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/16 15:08:09 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/18 11:23:25 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ void	map_update(char **map, int key, int x, int y)
 	if (map[y][x] == 'C')
 		hp = 6;
 	else if (map[y][x] == 'E')
-		print_game_over("Exit reached, you win!");
+		print_game_over("Exit reached, you won!");
 	steps++;
 	hp--;
 	if (!hp)

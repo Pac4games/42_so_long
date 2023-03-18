@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:09:50 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/17 18:06:10 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/18 11:11:48 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ t_data		*window(void);
 char		**map_load(char *path, t_list *cursor);
 int			map_size(char **map, char axis);
 void		map_update(char **map, int key, int x, int y);
-//void		check_path(char **map);
+void		check_path(char **map, int x, int y);
 void		check_map(char **map);
 
 //Game utils
@@ -72,7 +72,6 @@ void		window_load(char **map, char *player, int p, int i);
 int			window_update(void);
 void		window_destroy_sprites(void);
 void		destroy(void *img);
-int			count_collet(char **map);
 t_pos		get_player_pos(char **map);
 int			player_move(int key, char **map);
 char		*get_player_sprite(int key, char *sprite);
