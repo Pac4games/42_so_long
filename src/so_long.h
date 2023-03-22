@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:09:50 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/18 16:52:06 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/22 12:38:01 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # define PLAYER_RIGHT "assets/luka_right.xpm"
 # define WALL "assets/wall_front.xpm"
 # define FLOOR "assets/floor.xpm"
-# define COLLECTIBLE "assets/antidote1.xpm"
+# define COLLECTIBLE "assets/antidote.xpm"
 # define DOOR_CLOSED "assets/door_closed.xpm"
 # define DOOR_OPEN "assets/door_open.xpm"
 
