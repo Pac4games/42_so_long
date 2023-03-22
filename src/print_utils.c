@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 18:22:06 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/22 12:34:20 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/22 12:48:27 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	print_game_over(char *msg, char **map)
 	window_destroy_sprites();
 	mlx_destroy_window((*window()).mlx, (*window()).win);
 	mlx_destroy_display((*window()).mlx);
+	free((*window()).mlx);
 	p = 0;
 	while (map[p])
 		free(map[p++]);
