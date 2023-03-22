@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 18:22:06 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/18 16:52:57 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/22 12:34:20 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	print_error(char *msg, char **map)
 	p = 0;
 	if (map)
 	{
-		while(map[p])
+		while (map[p])
 			free(map[p++]);
 		free(map);
 	}
