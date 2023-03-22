@@ -1,6 +1,6 @@
 # So_long
 
-[![Intro](https://img.shields.io/badge/Cursus-So_long-success?style=for-the-badge&logo=42)](https://github.com/bshintak/So_long)
+[![Intro](https://img.shields.io/badge/Cursus-So_long-success?style=for-the-badge&logo=42)](https://github.com/Pac4games/So_long)
  
  [![Stars](https://img.shields.io/github/stars/Pac4games/So_long?color=ffff00&label=Stars&logo=Stars&style=?style=flat)](https://github.com/Pac4games/So_long)
  [![Size](https://img.shields.io/github/repo-size/Pac4games/So_long?color=blue&label=Size&logo=Size&style=?style=flat)](https://github.com/Pac4games/So_long)
