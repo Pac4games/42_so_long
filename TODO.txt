@@ -1,8 +1,8 @@
 TODO list:
 - fix remaining memory leaks;
 - add more levels;
-- add enemies;
-- add sprite animation;
 
 Optional:
 - trailer;
+- add enemies;
+- add more sprite animation;
