@@ -1,5 +1,4 @@
 TODO list:
-- fix remaining memory leaks;
 - add more levels;
 
 Optional:
