@@ -6,46 +6,41 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:35:03 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/18 16:52:17 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/23 16:49:17 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	window_set_tile(char **map, char *player, int x, int y)
+static void	window_set_tile(char **map, int key, int x, int y)
 {
-	static char	*door;
-
-	door = get_door_sprite(map);
 	if (map[y][x] == '1')
-		(*window()).img = mlx_xpm_file_to_image((*window()).mlx, WALL,
-				&(*window()).img_x, &(*window()).img_y);
+		mlx_put_image_to_window((*window()).mlx, (*window()).win,
+			image_set().wall.img, x * 64, y * 64);
 	else if (map[y][x] == '0')
-		(*window()).img = mlx_xpm_file_to_image((*window()).mlx, FLOOR,
-				&(*window()).img_x, &(*window()).img_y);
+		mlx_put_image_to_window((*window()).mlx, (*window()).win,
+			image_set().floor.img, x * 64, y * 64);
 	else if (map[y][x] == 'P')
-		(*window()).img = mlx_xpm_file_to_image((*window()).mlx,
-				player, &(*window()).img_x, &(*window()).img_y);
+		mlx_put_image_to_window((*window()).mlx, (*window()).win,
+			get_player_sprite(key), x * 64, y * 64);
 	else if (map[y][x] == 'C')
-		(*window()).img = mlx_xpm_file_to_image((*window()).mlx,
-				COLLECTIBLE, &(*window()).img_x, &(*window()).img_y);
+		mlx_put_image_to_window((*window()).mlx, (*window()).win,
+			image_set().collectible.img, x * 64, y * 64);
 	else if (map[y][x] == 'E')
-		(*window()).img = mlx_xpm_file_to_image((*window()).mlx,
-				door, &(*window()).img_x, &(*window()).img_y);
+		mlx_put_image_to_window((*window()).mlx, (*window()).win,
+			get_door_sprite(map), x * 64, y * 64);
 	else if (map[y][x] != '\n')
 		print_error("invalid object detected in map.", map);
-	mlx_put_image_to_window((*window()).mlx, (*window()).win, (*window()).img,
-		x * 64, y * 64);
 }
 
-void	window_load(char **map, char *player, int p, int i)
+void	window_load(char **map, int key, int p, int i)
 {
 	while (map[p])
 	{
 		i = 0;
 		while (map[p][i])
 		{
-			window_set_tile(map, player, i, p);
+			window_set_tile(map, key, i, p);
 			i++;
 		}
 		p++;
@@ -60,18 +55,15 @@ int	window_update(void)
 
 void	window_destroy_sprites(void)
 {
-	int	x;
-	int	y;
-
-	destroy(mlx_xpm_file_to_image((*window()).mlx, PLAYER_UP, &x, &y));
-	destroy(mlx_xpm_file_to_image((*window()).mlx, PLAYER_DOWN, &x, &y));
-	destroy(mlx_xpm_file_to_image((*window()).mlx, PLAYER_LEFT, &x, &y));
-	destroy(mlx_xpm_file_to_image((*window()).mlx, PLAYER_RIGHT, &x, &y));
-	destroy(mlx_xpm_file_to_image((*window()).mlx, FLOOR, &x, &y));
-	destroy(mlx_xpm_file_to_image((*window()).mlx, WALL, &x, &y));
-	destroy(mlx_xpm_file_to_image((*window()).mlx, DOOR_OPEN, &x, &y));
-	destroy(mlx_xpm_file_to_image((*window()).mlx, DOOR_CLOSED, &x, &y));
-	destroy(mlx_xpm_file_to_image((*window()).mlx, COLLECTIBLE, &x, &y));
+	mlx_destroy_image((*window()).mlx, image_set().door_closed.img);
+	mlx_destroy_image((*window()).mlx, image_set().door_open.img);
+	mlx_destroy_image((*window()).mlx, image_set().player_up.img);
+	mlx_destroy_image((*window()).mlx, image_set().player_down.img);
+	mlx_destroy_image((*window()).mlx, image_set().player_left.img);
+	mlx_destroy_image((*window()).mlx, image_set().player_right.img);
+	mlx_destroy_image((*window()).mlx, image_set().floor.img);
+	mlx_destroy_image((*window()).mlx, image_set().wall.img);
+	mlx_destroy_image((*window()).mlx, image_set().collectible.img);
 }
 
 void	window_create(char **map)
@@ -81,7 +73,7 @@ void	window_create(char **map)
 	(*window()).mlx = mlx_init();
 	(*window()).win = mlx_new_window((*window()).mlx, (*window()).size_x * 64,
 			(*window()).size_y * 64, "Silver Rush");
-	window_load(map, PLAYER_DOWN, 0, 0);
+	window_load(map, KEY_DOWN, 0, 0);
 	print_onscreen("Steps: 0", 4, 16);
 	print_onscreen("HP: 5", 4, 32);
 	mlx_key_hook((*window()).win, player_move, map);

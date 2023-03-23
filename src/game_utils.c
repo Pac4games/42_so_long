@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 22:11:04 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/18 16:23:15 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/23 16:43:25 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_pos	get_player_pos(char **map)
 	return (player_pos);
 }
 
-int	player_collision(char **map, int x, int y)
+static int	player_collision(char **map, int x, int y)
 {
 	int	p;
 	int	i;
@@ -62,20 +62,22 @@ int	player_collision(char **map, int x, int y)
 	return (0);
 }
 
-char	*get_player_sprite(int key, char *sprite)
+void	*get_player_sprite(int key)
 {
-	if (key == KEY_DOWN || !sprite)
-		return (PLAYER_DOWN);
+	static void	*img;
+
+	if (key == KEY_DOWN || !img)
+		img = image_set().player_down.img;
 	else if (key == KEY_UP)
-		return (PLAYER_UP);
+		img = image_set().player_up.img;
 	else if (key == KEY_LEFT)
-		return (PLAYER_LEFT);
+		img = image_set().player_left.img;
 	else if (key == KEY_RIGHT)
-		return (PLAYER_RIGHT);
-	return (sprite);
+		img = image_set().player_right.img;
+	return (img);
 }
 
-char	*get_door_sprite(char **map)
+void	*get_door_sprite(char **map)
 {
 	int	p;
 	int	i;
@@ -92,8 +94,8 @@ char	*get_door_sprite(char **map)
 		p++;
 	}
 	if (collet)
-		return (DOOR_CLOSED);
-	return (DOOR_OPEN);
+		return (image_set().door_closed.img);
+	return (image_set().door_open.img);
 }
 
 int	player_move(int key, char **map)

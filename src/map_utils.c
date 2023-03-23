@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 16:49:40 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/18 17:01:58 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/23 16:31:23 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,11 +99,9 @@ int	map_size(char **map, char axis)
 
 void	map_update(char **map, int key, int x, int y)
 {
-	static char	*sprite;
 	static int	steps;
 	static int	hp;
 
-	sprite = get_player_sprite(key, sprite);
 	if (!steps)
 		hp = 5;
 	if (map[y][x] == 'C')
@@ -115,6 +113,6 @@ void	map_update(char **map, int key, int x, int y)
 	if (!hp)
 		print_game_over("GAME OVER! You died by poison.", map);
 	map[y][x] = 'P';
-	window_load(map, sprite, 0, 0);
+	window_load(map, key, 0, 0);
 	display_stats(steps, hp);
 }
