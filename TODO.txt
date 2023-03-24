@@ -1,7 +1,0 @@
-TODO list:
-- add more levels;
-
-Optional:
-- trailer;
-- add enemies;
-- add more sprite animation;
