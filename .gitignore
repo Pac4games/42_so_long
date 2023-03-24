@@ -1,5 +1,7 @@
 *.o
+libs/*/*.o
 *.a
+libs/*/*.a
 vgcore.*
 obj/
 so_long
