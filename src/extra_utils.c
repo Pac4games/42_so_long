@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:01:19 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/23 16:48:39 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/24 12:05:15 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 static t_image	image_make(char *path)
 {
 	t_image	img;
+	int		size;
 
-	img.img = mlx_xpm_file_to_image((*window()).mlx, path, &img.size,
-			&img.size);
+	img.img = mlx_xpm_file_to_image((*window()).mlx, path,
+			&size, &size);
 	return (img);
 }
 

@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 21:16:02 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/23 17:47:20 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/24 11:39:23 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static void	check_other(char **map, int p, int i)
 				exit++;
 			else if (map[p][i] == 'C')
 				collet++;
-			else if (map[p][i] != '1' || map[p][i] != '0')
+			else if (map[p][i] != '1' && map[p][i] != '0' && map[p][i] != '\n')
 				print_error("invalid object detected in map.", map);
 			i++;
 		}

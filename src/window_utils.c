@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:35:03 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/23 17:46:21 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/24 11:30:38 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ static void	window_set_tile(char **map, int key, int x, int y)
 	else if (map[y][x] == 'E')
 		mlx_put_image_to_window((*window()).mlx, (*window()).win,
 			get_door_sprite(map), x * 64, y * 64);
-	else if (map[y][x] != '\n')
-		print_error("invalid object detected in map.", map);
 }
 
 void	window_load(char **map, int key, int p, int i)

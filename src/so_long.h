@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:09:50 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/23 17:46:28 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/24 12:05:21 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,8 @@ typedef struct s_data
 {
 	void	*mlx;
 	void	*win;
-	void	*img;
-	int		x;
-	int		y;
 	int		size_x;
 	int		size_y;
-	int		img_x;
-	int		img_y;
 }				t_data;
 
 typedef struct s_pos
@@ -59,11 +54,6 @@ typedef struct s_pos
 typedef struct s_image
 {
 	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-	int		size;
 }				t_image;
 
 typedef struct s_sprites
