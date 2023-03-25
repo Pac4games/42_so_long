@@ -6,7 +6,7 @@
 #    By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/17 15:53:29 by paugonca          #+#    #+#              #
-#    Updated: 2023/03/24 11:43:19 by paugonca         ###   ########.fr        #
+#    Updated: 2023/03/25 09:21:05 by paugonca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ all: $(NAME)
 $(OBJ_PATH)/%.o : $(SRC_PATH)/%.c
 	$(CC) $(CFLAGS) $(MLX_LINUX) -c $< -o $@
 $(NAME): $(DEPS) $(OBJ_PATH) $(OBJ)
+		cd libs/mlx_linux && ./configure
 		$(CC) $(CFLAGS) $(OBJ) $(DEPS) $(MLXFLAGS) -o $(NAME)
 		echo -e "\n[so_long successfully compiled!]"
 
