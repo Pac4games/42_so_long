@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 15:35:20 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/23 17:47:28 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/03/25 09:17:59 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,15 @@ static int	count_collet(char **map)
 
 static void	find_path(char **tmp, int x, int y, int *collet)
 {
-	*collet += (tmp[y][x] == 'C' || tmp[y][x] == 'E');
+	*collet += (tmp[y][x] == 'C');
 	tmp[y][x] = 'R';
-	if (tmp[y][x + 1] != '1' && tmp[y][x + 1] != 'R')
+	if (tmp[y][x + 1] != '1' && tmp[y][x + 1] != 'R' && tmp[y][x + 1] != 'E')
 		find_path(tmp, x + 1, y, collet);
-	if (tmp[y][x - 1] != '1' && tmp[y][x - 1] != 'R')
+	if (tmp[y][x - 1] != '1' && tmp[y][x - 1] != 'R' && tmp[y][x - 1] != 'E')
 		find_path(tmp, x - 1, y, collet);
-	if (tmp[y + 1][x] != '1' && tmp[y + 1][x] != 'R')
+	if (tmp[y + 1][x] != '1' && tmp[y + 1][x] != 'R' && tmp[y + 1][x] != 'E')
 		find_path(tmp, x, y + 1, collet);
-	if (tmp[y - 1][x] != '1' && tmp[y - 1][x] != 'R')
+	if (tmp[y - 1][x] != '1' && tmp[y - 1][x] != 'R' && tmp[y - 1][x] != 'E')
 		find_path(tmp, x, y - 1, collet);
 }
 
@@ -70,6 +70,6 @@ void	check_path(char **map, int x, int y)
 	while (tmp[p])
 		free(tmp[p++]);
 	free(tmp);
-	if (collet != (count_collet(map) + 1))
+	if (collet != (count_collet(map)))
 		print_error("provided map does not contain a valid path.", map);
 }
