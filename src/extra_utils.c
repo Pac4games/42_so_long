@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:01:19 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/24 12:05:15 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/04/17 15:19:18 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,33 @@ void	display_stats(int steps, int hp)
 	print_onscreen(tmp_join, 4, 32);
 	free(tmp_itoa);
 	free(tmp_join);
+}
+
+char	**dup_matrix(char **matrix)
+{
+	char	**res;
+	int		p;
+
+	p = 0;
+	while (matrix[p])
+		p++;
+	res = malloc((p + 1) * sizeof(char *));
+	res[p] = NULL;
+	p = 0;
+	while (matrix[p])
+	{
+		res[p] = ft_strdup(matrix[p]);
+		p++;
+	}
+	return (res);
+}
+
+void	free_matrix(char **matrix)
+{
+	int	p;
+
+	p = 0;
+	while (matrix[p])
+		free(matrix[p++]);
+	free(matrix);
 }

@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:09:50 by paugonca          #+#    #+#             */
-/*   Updated: 2023/03/24 12:05:21 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/04/17 14:21:22 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,9 @@ void		print_error(char *msg, char **map);
 void		print_game_over(char *msg, char **map);
 int			print_game_closed(char **map);
 void		print_onscreen(char *msg, int x, int y);
+
+//Other utils
+char		**dup_matrix(char **matrix);
+void		free_matrix(char **matrix);
 
 #endif

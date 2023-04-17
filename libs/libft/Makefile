@@ -6,7 +6,7 @@
 #    By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/19 14:56:07 by paugonca          #+#    #+#              #
-#    Updated: 2023/02/27 17:41:55 by paugonca         ###   ########.fr        #
+#    Updated: 2023/04/17 15:37:42 by paugonca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ ft_strncmp ft_strnstr ft_strrchr ft_strtrim ft_substr ft_tolower ft_toupper
 BONUS = ft_lstnew ft_lstadd_front ft_lstsize ft_lstlast ft_lstadd_back\
 ft_lstdelone ft_lstclear ft_lstiter
 
-CC = gcc
+CC = cc
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror -I.
 

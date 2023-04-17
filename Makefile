@@ -6,13 +6,13 @@
 #    By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/17 15:53:29 by paugonca          #+#    #+#              #
-#    Updated: 2023/03/25 09:21:05 by paugonca         ###   ########.fr        #
+#    Updated: 2023/04/17 14:44:02 by paugonca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	so_long
 CC			=	cc
-CFLAGS		=	-Wall -Werror -Wall #-fsanitize=address
+CFLAGS		=	-Wall -Werror -Wall -fsanitize=address
 RM			=	rm -f
 MKD			=	mkdir
 MLXFLAGS	=	-Llibs/mlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz

@@ -6,7 +6,7 @@
 #    By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/24 17:01:52 by paugonca          #+#    #+#              #
-#    Updated: 2023/02/24 17:07:34 by paugonca         ###   ########.fr        #
+#    Updated: 2023/04/17 15:37:52 by paugonca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME =	get_next_line.a
 SRC =	get_next_line	\
 		get_next_line_utils
 
-CC =		gcc
+CC =		cc
 RM =		rm -f
 CFLAGS =	-Wall -Werror -Wextra -I.
 
