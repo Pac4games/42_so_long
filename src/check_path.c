@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 15:35:20 by paugonca          #+#    #+#             */
-/*   Updated: 2023/04/17 15:34:58 by paugonca         ###   ########.fr       */
+/*   Updated: 2023/04/19 12:30:41 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,6 @@ static int	find_path_exit(char **tmp, int x, int y)
 {
 	static int	exit;
 
-	print_matrix(tmp);
-	printf("\n");
 	if (tmp[y][x] == 'E')
 		exit++;
 	tmp[y][x] = 'R';
